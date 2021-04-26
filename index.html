@@ -1,0 +1,123 @@
+<html>
+
+<head>
+    <title>Song Website</title>
+    <style>
+        body {
+            background-image: url(img/bg.jpg);
+            background-size: cover;
+        }
+
+        .top {
+            text-align: center;
+        }
+
+        p.text {
+            color: lightcoral;
+            position: relative;
+            top: 0px;
+            position: top;
+        }
+        
+        h1.heading {
+            font-size: 60px;
+            color: lightcoral;
+            text-shadow: 2px 2px darkgrey;
+            height: 50px;
+            padding-left: 300px;
+        }
+        .main{
+            /* position: relative; */
+            margin-right: 120px;
+            margin-left: 120px;
+            background-color:rgba(149,0,179, 0.3);
+            /* background-color: #af215f; */
+            /* width: 70%; */
+        }
+
+        .mid {
+            border: 5px solid black;
+            display: flex;
+            justify-content: space-around;
+            padding: 7px;
+            outline: darkred inset 2px;
+        }
+        #text_ar1{
+            border-top: none;
+            border-bottom: none;
+            height: 20px;
+            color: plum;
+            text-shadow:1px 1px palevioletred ;
+        }
+        .t1{
+            position: relative;
+            bottom: 20px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        #text_ar2{
+            border-top: none;
+            height: 23px;
+            color: plum;
+            text-shadow:1px 1px palevioletred ;
+        }
+        img{
+            cursor: pointer;
+        }
+        /* a{
+            filter: drop-shadow(10px 10px 5px red);
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="top">
+        <p style="float: right;" class="text">Single click to start and Double click to pause</p>
+        <h1 class="heading">Song Website</h1>
+        <p class="text">designed by Shub_k_yash</p>
+    </div>
+    <div class="main">
+        <div class="mid" id="mid1">
+            <img src="img/img1.jpeg" alt="" height="200px" width="200px" onmouseover="styling()"  
+            onmouseout="styleout()" id="img1" onclick="playsong()" ondblclick="pausesong()">
+            <img src="img/img2.jpeg" alt="" height="200px" width="200px">
+            <img src="img/img3.jpeg" alt="" height="200px" width="200px">
+        </div>
+        <div class="mid" id="text_ar1">
+            <p class="t1">Song 1</p>
+            <p class="t1">song 2</p>
+            <p class="t1">song 3</p>
+        </div>
+        <div class="mid" >
+            <img src="img/img4.jpeg" alt="" height="200px" width="200px">
+            <img src="img/img5.jpeg" alt="" height="200px" width="200px">
+            <img src="img/img6.jpeg" alt="" height="200px" width="200px">
+        </div>
+        <div class="mid" id="text_ar2">
+            <p class="t1">song 4</p>
+            <p class="t1">song 5</p>
+            <p class="t1">song 6</p>
+        </div>
+    </div>
+
+    <script>
+        function styling(){
+            document.getElementById('img1').setAttribute("style","filter: drop-shadow(10px 10px 5px red);");
+        }
+        function styleout(){
+            document.getElementById('img1').setAttribute("style","filter: drop-shadow();");
+        }
+        var mysong = new Audio();
+        mysong.src='song/song1.mp3';
+        function playsong(){
+            mysong.play();
+        }
+        function pausesong(){
+            mysong.pause();
+        }
+    </script>
+
+
+</body>
+
+</html>
