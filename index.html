@@ -44,16 +44,19 @@
             top: 0px;
             position: top;
         }
+        #t2{
+            position: fixed;
+            top: 95vh;
+        }
         
         h1.heading {
             font-size: 60px;
             color: white;
             font-family: Georgia, 'Times New Roman', Times, serif;
             text-shadow: 2px 2px darkgrey;
-            height: 50px;
-            padding-left: 300px;
+            /* height: 50px; */
+            /* padding-left: 300px; */
             padding-bottom: 30px;
-            
         }
         .main{
             /* position: relative; */
@@ -80,27 +83,14 @@
         #mid2{
             border-top: none;
         }
-        #text_ar1{
-            border-top: none;
-            border-bottom: none;
-            height: 20px;
-            color: plum;
-            text-shadow:1px 1px palevioletred ;
-        }
-        .t1{
-            position: relative;
-            bottom: 20px;
-            font-weight: bold;
-            font-size: 20px;
-        }
-        #text_ar2{
-            border-top: none;
-            height: 23px;
-            color: plum;
-            text-shadow:1px 1px palevioletred ;
-        }
+        
+       
         img{
             cursor: pointer;
+        }
+        img:hover{
+            transform:scale(1.1);
+            filter: drop-shadow(10px 10px 5px red);
         }
     </style>
 </head>
@@ -108,21 +98,20 @@
 <body>
     <div class="main_body">
     <div class="top">
-        <p style="float: right;" class="text">Single click to start and Double click to pause</p>
+        <p  class="text">Single click to start and Double click to pause</p>
         <h1 class="heading">Song Website</h1>
-        <p class="text">designed by Shub_k_yash</p>
+        <p class="text" id="t2">designed by Shub_k_yash</p>
     </div>
     <div class="main">
         <div class="mid" id="mid1">
-            <img src="img/img1.jpeg" alt="" height="200px" width="200px" onmouseover="styling()"  
-            onmouseout="styleout()" id="img1" onclick="playsong()" ondblclick="pausesong()">
-            <img src="img/img2.jpeg" alt="" height="200px" width="200px">
-            <img src="img/img3.jpeg" alt="" height="200px" width="200px">
+            <img src="img/img1.jpeg" alt="" height="200px" width="200px" id="img1" class="image" >
+            <img src="img/img2.jpeg" alt="" height="200px" width="200px" id="img2" class="image" >
+            <img src="img/img3.jpeg" alt="" height="200px" width="200px" id="img3" class="image" >
         </div>
         <div class="mid" id="mid2" >
-            <img src="img/img4.jpeg" alt="" height="200px" width="200px">
-            <img src="img/img5.jpeg" alt="" height="200px" width="200px">
-            <img src="img/img6.jpeg" alt="" height="200px" width="200px">
+            <img src="img/img4.jpeg" alt="" height="200px" width="200px" id="img4" class="image" >
+            <img src="img/img5.jpeg" alt="" height="200px" width="200px" id="img5" class="image" >
+            <img src="img/img6.jpeg" alt="" height="200px" width="200px" id="img6" class="image" >
         
         </div>
         
@@ -130,20 +119,97 @@
 </div>
 
     <script>
-        function styling(){
-            document.getElementById('img1').setAttribute("style","filter: drop-shadow(10px 10px 5px red);");
+        var divlength= document.querySelectorAll('.image').length;
+        console.log(divlength);
+        for(var i=0;i <divlength; i++){
+            var demo = document.querySelectorAll('.image')[i].addEventListener('click', playsong);
+            var demo = document.querySelectorAll('.image')[i].addEventListener('dblclick', pausesong);
         }
-        function styleout(){
-            document.getElementById('img1').setAttribute("style","filter: drop-shadow();");
-        }
-        var mysong = new Audio();
-        mysong.src='song/song1.mp3';
+
+        var song1 = new Audio();
+        song1.src='song/song1.mp3';
+
+        var song2 = new Audio();
+        song2.src='song/song2.mp3';
+        
+        var song3 = new Audio();
+        song3.src='song/song3.mp3';
+
+        var song4 = new Audio();
+        song4.src='song/song4.mp3';
+
+        var song5 = new Audio();
+        song5.src='song/song5.mp3';
+
+        var song6 = new Audio();
+        song6.src='song/song6.mp3';
+
         function playsong(){
-            mysong.play();
+            // alert("hello");
+            var songId = this.id;
+            // console.log(songId);
+            switch(songId){
+                case "img1":
+                    song1.play();
+                    break;
+                case "img2":
+                    song2.play();
+                    break;
+                case "img3":
+                    song3.play();
+                    break;
+                case "img4":
+                    song4.play();
+                    break;
+                case "img5":
+                    song5.play();
+                    break;
+                case "img6":
+                    song6.play();
+                    break;
+            }
         }
+
         function pausesong(){
-            mysong.pause();
+            var songId = this.id;
+            // console.log(songId);
+            switch(songId){
+                case "img1":
+                    song1.pause();
+                    break;
+                case "img2":
+                    song2.pause();
+                    break;
+                case "img3":
+                    song3.pause();
+                    break;
+                case "img4":
+                    song4.pause();
+                    break;
+                case "img5":
+                    song5.pause();
+                    break;
+                case "img6":
+                    song6.pause();
+                    break;
+            }
         }
+
+
+        // function styling(){
+        //     document.getElementById('img1').setAttribute("style","filter: drop-shadow(10px 10px 5px red);");
+        // }
+        // function styleout(){
+        //     document.getElementById('img1').setAttribute("style","filter: drop-shadow();");
+        // }
+        // var mysong = new Audio();
+        // mysong.src='song/song1.mp3';
+        // function playsong(){
+        //     mysong.play();
+        // }
+        // function pausesong(){
+        //     mysong.pause();
+        // }
     </script>
 
 
